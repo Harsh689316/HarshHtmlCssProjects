@@ -1,0 +1,32 @@
+container {
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    
+    align-items:center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(241, 91, 91);
+}
+
+.first-box {
+    width: 20%;
+    height: 20%;
+    margin: 1px;
+    background-color: rgb(142, 246, 128);
+}
+
+.second-box {
+    width: 20%;
+    height: 20%;
+    margin: 1px;
+    background-color: rgb(198, 138, 255);
+}
+
+.third-box {
+    width: 20%;
+    height: 20%;
+    margin: 1px;
+    background-color: rgb(131, 249, 249);
+    
+}

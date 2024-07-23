@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <title>home page</title>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+
+        }
+
+        .main-container {
+            width: 100vw;
+            background-color: gray;
+
+        }
+
+        .header {
+            height: 50px;
+            width: 100%;
+            color: black;
+            background-color: rgba(128, 128, 128, 0.346);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            border: 1px solid aqua;
+            font-size: x-large;
+        }
+
+        span {
+            cursor: pointer;
+            text-decoration: solid;
+            color: green;
+        }
+
+        a,
+        span:hover {
+            color: red;
+            height: 30%;
+            background-color: lightblue;
+        }
+
+        .First-container {
+            width: 100vw;
+            height: 100vh;
+            background-image: url(./assets/images/pexels-d-ng-nhan-324384-1529881.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            background-color: gray;
+            border: 1px solid aqua;
+
+        }
+
+        .Second-container {
+            width: 100vw;
+            height: 100vh;
+            background-image: url(./assets/images/pexels-karolina-grabowska-4814061.jpg);
+            color: white;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+            border: 1px solid aqua;
+        }
+
+        .Third-container {
+            width: 100vw;
+            height: 100vh;
+            background-image: url(./assets/images/pexels-exnl-4151043.jpg);
+            color: white;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+            border: 1px solid aqua;
+
+
+        }
+
+        .projects {
+            width: 100vw;
+            height: 10vh;
+            display: flex;
+            flex-direction: row;
+            border: 1px solid aqua;
+            justify-content: center;
+
+        }
+
+        .box {
+            height: 90%;
+            width: 50px;
+        }
+
+        .flex-boxes {
+            width: 100vw;
+            height: 40vh;
+            display: flex;
+            flex-direction: row;
+            border: solid black;
+            justify-content: space-evenly;
+            align-items: flex-start;
+            border-style: 2px solid black;
+            border: 1px solid aqua;
+
+        }
+
+        .layouts {
+            width: 100vw;
+            height: 40vh;
+            display: flex;
+            flex-direction: row;
+
+            align-items: center;
+            justify-content: center;
+            border: 1px solid aqua;
+        }
+
+        .Fourth-container {
+            width: 100vw;
+            height: 100vh;
+            background-image: url(./assets/images/pexels-thirdman-5981925.jpg);
+            color: white;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+            border: 1px solid aqua;
+
+        }
+
+        .contact-section {
+            width: 100%;
+            height: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contacts {
+            width: 100%;
+            height: 30%;
+            margin-bottom: 100px;
+
+        }
+
+        .icon {
+            width: 100%;
+            height: 30%;
+            margin-top: 400px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: flex-end;
+
+        }
+
+        .numbers {
+            width: 50%;
+            height: 30%;
+            margin-top: 100px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .project-container {
+            height: 100%;
+            width: 40%;
+            border-style: solid;
+        }
+
+        img {
+            box-shadow: 10px 10px 10px rgb(0, 105, 128);
+        }
+
+
+
+        .images-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30%;
+            margin-right: 10%;
+        }
+
+        .hello {
+            width: 100%;
+            height: 100%;
+            font-size: 40px;
+            background-color: transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- row-one -->
+        <header class="header">
+            <span style="text-decoration: none;"> <a href="#home">Home</span></a>
+            <span><a href="#about">About</span></a>
+            <span><a href="#pro">Project</span></a>
+            <span><a href="#contacts">Contact</span></a>
+        </header>
+        <!-- home section -->
+        <section id="home" class="First-container" style="margin: 0px; font-size:xx-large ;">
+            <div>
+                <h1 style="margin-top:-265px; margin-left:600px; color:rgb(18, 212, 50);font-size: xx-large;"><b>Welcome To
+                    My Webpage</b> </h1>
+            </div>
+            <div>
+                <h1 style="margin-top:-155px; margin-left:600px;">Full Stack Developer <br>
+               </h1>
+                <h2 style="color:white; margin-left: 10px;">HI</h2>
+            </div>
+            <div style="color:white; margin-left: 150px;"><b>It's me <span style="color:palegreen;">Harsh
+                        Kukade</span></b></span>
+                <b>I am full stack Developer</b>
+                <br>
+                <p> I Can Showcase what I do best and build trust <br>
+                     This gives an idea of who I am and what your journey my been like <br> 
+                    It helps hiring managers and your team to assess my skills better <br> and understand what kind of budget you should allocate based on my expertise 
+                    </p>
+            </div>
+        </section>
+
+        <div id="about" class="Second-container style=" font-size: xx-large;>
+            <!-- row-two -->
+            <div style="font-size: xx-large;">
+                <h1><b>INTRODUCTION</b></h1>
+                <!-- intro -->
+            </div>
+            <div style="font-size: xx-large;" style="margin-left:15%; margin-left:15%; margin-top: 10px;"><b> I am a
+                    full stack Developer</b> </div>
+            <div></div>
+            <div style="margin-right:70%; font-size: x-large;margin-top: 8%;"> <b> I lived in
+                    katol <br>Dist:-Nagpur <br>State:-Maharashtra</b> <br> <br><b>Iam 18 years old </b></div>
+            <div>
+                <p>I'm a dedicated software developer with a passion for creating innovative digital solutions. <br>
+                    With a
+                    strong foundation in programming and a knack <br>for problem-solving, I specialize in crafting
+                    robust
+                    software applications that drive efficiency and user satisfaction</p>
+            </div>
+            <button style="margin-left:-800px; margin-top:25px; font-size: x-large;">RESUME</button>
+        </div>
+    </div>
+    </div>
+    <section id="pro" class="Third-container" style="font-size: xx-large;  margin-left:0px">
+        <!-- Third-row -->
+        <div class="projects">
+            <!-- projects -->
+            <h1>MY PROJECTS</h1>
+            <div class="card images-card hello" style="width: 18rem;">
+                <img src="data:image/jpeg;base64,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"
+                    class="card-img-top" alt="...">
+                <div class="card-body card-tittle">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text"> Here are my some of the best HTML and CSS projects</p>
+                    <a href="portfolio.html" class="btn btn-primary">projects</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+    </section>
+    <section id="contacts" class="Fourth-container" style="font-size: xx-large; margin-left: 0px;">
+        
+        <!-- fourth-row -->
+        
+        <div class="cons">
+            <div>
+                <b>
+                    <h1>contacts</h1>
+                </b>
+            </div>
+            <hr>
+            <div class="contact-section">
+                <div class="numbers">
+                    <div>contacts:-987xxxxxxx</div>
+                    <div>contacts:-9345xxxxxx</div>
+                    <div> Gmail:harshkukadexx@gmail.com</div>
+                </div>
+                <div class="icon">
+                    <a
+                        href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fcontacts.google.com%2F&followup=https%3A%2F%2Fcontacts.google.com%2F&ifkv=AdF4I775L_BDqhU6xBfHtR-tloD5_W5MW2crHOh_HcQa6gNFLez9uiikn9PX7OWm4_Cn4lvn4K8AAg&passive=1209600&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-1123269232%3A1721456574621118&ddm=0">
+                        <img src="./assets/images/contacts.png" width="50vw" height="50vh" alt="">
+                        <a href="https://join.skype.com/invite/trA5chU72dfp">
+                            <img src="./assets/images/skype images.jpeg" width="50vw" height="50vh" alt="">
+                        </a>
+
+                        <a href="https://github.com/Harsh689316/HarshFullStackDeveloper">
+                            <img src="./assets/images/git hub.png" width="50vw" height="50vh"></a>
+
+                        <a href="https://x.com/?lang=en">
+                            <img src="./assets/images/twiter.png" width="50vw" height="50vh" alt=""></a>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+        </div>
+    </section>
+</body>
+
+</html>
