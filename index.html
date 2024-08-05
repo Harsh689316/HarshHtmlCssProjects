@@ -1,335 +1,624 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" style="scroll-behavior: smooth;">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <title>home page</title>
-
+    <title>SHREE MEDICALS</title>
     <style>
-        html {
-            scroll-behavior: smooth;
-
-        }
-
-        .main-container {
-            width: 100vw;
-            background-color: gray;
-
-        }
-
-        .header {
-            height: 50px;
-            width: 100%;
-            color: black;
-            background-color: rgba(128, 128, 128, 0.346);
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-            border: 1px solid aqua;
-            font-size: x-large;
-        }
-
-        span {
+        /* === removing default button style ===*/
+        .button {
+            margin: 0;
+            height: auto;
+            background: transparent;
+            padding: 0;
+            border: none;
             cursor: pointer;
-            text-decoration: solid;
-            color: green;
         }
 
-        a,
-        span:hover {
-            color: red;
-            height: 30%;
-            background-color: lightblue;
+        /* button styling */
+        .button {
+            --border-right: 6px;
+            --text-stroke-color: rgba(255, 255, 255, 0.6);
+            --animation-color: #37FF8B;
+            --fs-size: 2em;
+            letter-spacing: 3px;
+            text-decoration: none;
+            font-size: var(--fs-size);
+            font-family: "Arial";
+            position: relative;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--text-stroke-color);
         }
 
-        .First-container {
-            width: 100vw;
-            height: 100vh;
-            background-image: url(./assets/images/pexels-d-ng-nhan-324384-1529881.jpg);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-            text-align: center;
+        /* this is the text, when you hover on button */
+        .hover-text {
+            position: absolute;
+            box-sizing: border-box;
+            content: attr(data-text);
+            color: var(--animation-color);
+            width: 0%;
+            inset: 0;
+            border-right: var(--border-right) solid var(--animation-color);
+            overflow: hidden;
+            transition: 0.5s;
+            -webkit-text-stroke: 1px var(--animation-color);
+        }
+
+        /* hover */
+        .button:hover .hover-text {
+            width: 100%;
+            filter: drop-shadow(0 0 23px var(--animation-color))
+        }
+
+        .card {
+            width: 190px;
+            height: 254px;
+            background: rgb(103, 225, 255);
+            transition: all 0.4s;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.705);
+            font-size: 30px;
+            font-weight: 900;
+        }
+
+        .card:hover {
+            border-radius: 15px;
+            cursor: pointer;
+            transform: scale(1.2);
+            box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.705);
+            background: rgb(103, 151, 255);
+        }
+
+        .first-content {
+            height: 100%;
+            width: 100%;
+            transition: all 0.4s;
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
             justify-content: center;
-            background-color: gray;
-            border: 1px solid aqua;
-
-        }
-
-        .Second-container {
-            width: 100vw;
-            height: 100vh;
-            background-image: url(./assets/images/pexels-karolina-grabowska-4814061.jpg);
-            color: white;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-            text-align: center;
-            border: 1px solid aqua;
-        }
-
-        .Third-container {
-            width: 100vw;
-            height: 100vh;
-            background-image: url(./assets/images/pexels-exnl-4151043.jpg);
-            color: white;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-            text-align: center;
-            border: 1px solid aqua;
-
-
-        }
-
-        .projects {
-            width: 100vw;
-            height: 10vh;
-            display: flex;
-            flex-direction: row;
-            border: 1px solid aqua;
-            justify-content: center;
-
-        }
-
-        .box {
-            height: 90%;
-            width: 50px;
-        }
-
-        .flex-boxes {
-            width: 100vw;
-            height: 40vh;
-            display: flex;
-            flex-direction: row;
-            border: solid black;
-            justify-content: space-evenly;
-            align-items: flex-start;
-            border-style: 2px solid black;
-            border: 1px solid aqua;
-
-        }
-
-        .layouts {
-            width: 100vw;
-            height: 40vh;
-            display: flex;
-            flex-direction: row;
-
             align-items: center;
-            justify-content: center;
-            border: 1px solid aqua;
+            opacity: 1;
+            border-radius: 15px;
         }
 
-        .Fourth-container {
-            width: 100vw;
-            height: 100vh;
-            background-image: url(./assets/images/pexels-thirdman-5981925.jpg);
-            color: white;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-            text-align: center;
-            border: 1px solid aqua;
-
+        .card:hover .first-content {
+            height: 0px;
+            opacity: 0;
         }
 
-        .contact-section {
+        .second-content {
+            height: 0%;
             width: 100%;
-            height: 70%;
+            opacity: 0;
             display: flex;
-            flex-direction: column;
             justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            transition: all 0.4s;
+            font-size: 0px;
+            transform: rotate(90deg) scale(-1);
         }
 
-        .contacts {
-            width: 100%;
-            height: 30%;
-            margin-bottom: 100px;
-
+        .card:hover .second-content {
+            opacity: 1;
+            height: 100%;
+            font-size: 1.8rem;
+            transform: rotate(0deg);
         }
 
-        .icon {
-            width: 100%;
-            height: 30%;
-            margin-top: 400px;
+        .card-parent {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
-            align-items: flex-end;
-
         }
 
-        .numbers {
-            width: 50%;
-            height: 30%;
-            margin-top: 100px;
-        }
-
-        a {
-            text-decoration: none;
-            color: black;
-        }
-
-        .project-container {
-            height: 100%;
-            width: 40%;
-            border-style: solid;
-        }
-
-        img {
-            box-shadow: 10px 10px 10px rgb(0, 105, 128);
-        }
-
-
-
-        .images-card {
+        .choice {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-top: 30%;
-            margin-right: 10%;
+            justify-content: space-around;
         }
 
-        .hello {
+        ul {
+            list-style: none;
+        }
+
+        .example-2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .example-2 .icon-content {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .example-2 .icon-content .tooltip {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .example-2 .icon-content:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            top: -50px;
+        }
+
+        .example-2 .icon-content a {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: #4d4d4d;
+            background-color: #fff;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .example-2 .icon-content a:hover {
+            box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+        }
+
+        .example-2 .icon-content a svg {
+            position: relative;
+            z-index: 1;
+            width: 30px;
+            height: 30px;
+        }
+
+        .example-2 .icon-content a:hover {
+            color: white;
+        }
+
+        .example-2 .icon-content a .filled {
+            position: absolute;
+            top: auto;
+            bottom: 0;
+            left: 0;
             width: 100%;
-            height: 100%;
-            font-size: 40px;
-            background-color: transparent;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            height: 0;
+            background-color: #000;
+            transition: all 0.3s ease-in-out;
         }
-        
-    </style>
 
+        .example-2 .icon-content a:hover .filled {
+            height: 100%;
+        }
+
+        .example-2 .icon-content a[data-social="linkedin"] .filled,
+        .example-2 .icon-content a[data-social="linkedin"]~.tooltip {
+            background-color: #0274b3;
+        }
+
+        .example-2 .icon-content a[data-social="github"] .filled,
+        .example-2 .icon-content a[data-social="github"]~.tooltip {
+            background-color: #24262a;
+        }
+
+        .example-2 .icon-content a[data-social="instagram"] .filled,
+        .example-2 .icon-content a[data-social="instagram"]~.tooltip {
+            background: linear-gradient(45deg,
+                    #405de6,
+                    #5b51db,
+                    #b33ab4,
+                    #c135b4,
+                    #e1306c,
+                    #fd1f1f);
+        }
+
+        .example-2 .icon-content a[data-social="youtube"] .filled,
+        .example-2 .icon-content a[data-social="youtube"]~.tooltip {
+            background-color: #ff0000;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="main-container">
-        <!-- row-one -->
-        <header class="header">
-            <span style="text-decoration: none;"> <a href="#home">Home</span></a>
-            <span><a href="#about">About</span></a>
-            <span><a href="#pro">Project</span></a>
-            <span><a href="#contacts">Contact</span></a>
-        </header>
-        <!-- home section -->
-        <section id="home" class="First-container" style="margin: 0px; font-size:xx-large ;">
-            <div>
-                <h1 style="margin-top:-265px; margin-left:600px; color:rgb(18, 212, 50);font-size: xx-large;"><b>Welcome To
-                    My Webpage</b> </h1>
-            </div>
-            <div>
-                <h1 style="margin-top:-155px; margin-left:600px;">Full Stack Developer <br>
-               </h1>
-                <h2 style="color:white; margin-left: 10px;">HI</h2>
-            </div>
-            <div style="color:white; margin-left: 150px;"><b>It's me <span style="color:palegreen;">Harsh
-                        Kukade</span></b></span>
-                <b>I am full stack Developer</b>
-                <br>
-                <p> I Can Showcase what I do best and build trust <br>
-                     This gives an idea of who I am and what your journey my been like <br> 
-                    It helps hiring managers and your team to assess my skills better <br> and understand what kind of budget you should allocate based on my expertise 
-                    </p>
-            </div>
-        </section>
+    <!-- navbar section starts -->
 
-        <div id="about" class="Second-container style=" font-size: xx-large;>
-            <!-- row-two -->
-            <div style="font-size: xx-large;">
-                <h1><b>INTRODUCTION</b></h1>
-                <!-- intro -->
-            </div>
-            <div style="font-size: xx-large;" style="margin-left:15%; margin-left:15%; margin-top: 10px;"><b> I am a
-                    full stack Developer</b> </div>
-            <div></div>
-            <div style="margin-right:70%; font-size: x-large;margin-top: 8%;"> <b> I lived in
-                    katol <br>Dist:-Nagpur <br>State:-Maharashtra</b> <br> <br><b>Iam 18 years old </b></div>
-            <div>
-                <p>I'm a dedicated software developer with a passion for creating innovative digital solutions. <br>
-                    With a
-                    strong foundation in programming and a knack <br>for problem-solving, I specialize in crafting
-                    robust
-                    software applications that drive efficiency and user satisfaction</p>
-            </div>
-            <button style="margin-left:-800px; margin-top:25px; font-size: x-large;">RESUME</button>
-        </div>
-    </div>
-    </div>
-    <section id="pro" class="Third-container" style="font-size: xx-large;  margin-left:0px">
-        <!-- Third-row -->
-        <div class="projects">
-            <!-- projects -->
-            <h1>MY PROJECTS</h1>
-            <div class="card images-card hello" style="width: 18rem;">
-                <img src="data:image/jpeg;base64,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"
-                    class="card-img-top" alt="...">
-                <div class="card-body card-tittle">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text"> Here are my some of the best HTML and CSS projects</p>
-                    <a href="portfolio.html" class="btn btn-primary">projects</a>
+    <body data-bs-theme="dark">
+        <div class="container-fluid" style="text-align: center;">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#" style="color: #37FF8B;">SHREE MEDICALS</a>
+                    <section id="home">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </section>
+                    <div class="collapse navbar-collapse" id="Home">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Link">Link</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    More
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item"
+                                            href="https://magicpin.in/Katol/Katol/Pharmacy/Shree-Medical-Store/store/c003c3/?amp=1&srsltid=AfmBOoqLmxnTltec49JST3-OTmMNJgYkLqw77vjT5d4bBBa4IxttQSpz">Drugs</a>
+                                    </li>
+                                    <li><a class="dropdown-item"
+                                            href="https://magicpin.in/Katol/Katol/Pharmacy/Shree-Medical-Store/store/c003c3/?amp=1&srsltid=AfmBOoqLmxnTltec49JST3-OTmMNJgYkLqw77vjT5d4bBBa4IxttQSpz">Herbal
+                                            medicines</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="https://magicpin.in/Katol/Katol/Pharmacy/Shree-Medical-Store/store/c003c3/?amp=1&srsltid=AfmBOoqLmxnTltec49JST3-OTmMNJgYkLqw77vjT5d4bBBa4IxttQSpz">Narcotics
+                                            medicines</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search for more medicines</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <hr>
+            </nav>
+            <!-- navbar ends -->
 
-    </section>
-    <section id="contacts" class="Fourth-container" style="font-size: xx-large; margin-left: 0px;">
-        
-        <!-- fourth-row -->
-        
-        <div class="cons">
-            <div>
-                <b>
-                    <h1>contacts</h1>
-                </b>
-            </div>
-            <hr>
-            <div class="contact-section">
-                <div class="numbers">
-                    <div>contacts:-987xxxxxxx</div>
-                    <div>contacts:-9345xxxxxx</div>
-                    <div> Gmail:harshkukadexx@gmail.com</div>
+            <!-- first page section starts -->
+            <main>
+
+
+                <div class="container px-4 py-5" id="featured-3">
+                    <h2 class="pb-2 border-bottom"><button class="button" data-text="Awesome">
+                            <span class="actual-text">&nbsp;SHREE MEDICALS&nbsp;</span>
+                            <span aria-hidden="true" class="hover-text">&nbsp;SHREE MEDICALS&nbsp;</span>
+                        </button></h2>
+                    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                        <div class="feature col">
+                            <div
+                                class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                                <img src="./assets/./images/download (10).jpeg" alt="">
+                            </div>
+                            <h3 class="fs-2 text-body-emphasis">ALL TYPES OF MEDICINES</h3>
+                            <p>All types of medicines with best quality and with best prices only in Shree medicals and
+                                have best discounts and have all types of medicines and drugs and injections in best
+                                prices and have home delivery in minimum time with best preccription of the best
+                                experienced employes in our phramacy </p>
+                            <button><a href="https://magicpin.in/Katol/Katol/Pharmacy/Shree-Medical-Store/store/c003c3/?amp=1&srsltid=AfmBOoqLmxnTltec49JST3-OTmMNJgYkLqw77vjT5d4bBBa4IxttQSpz"
+                                class="icon-link" style="width: 50px;"><h4 style="text-align: center;">Visit</h4></button>
+                            </a>
+                        </div>
+                        <div class="feature col">
+                            <div
+                                class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                                <img src="./assets/./images/images (4).jpeg" alt="">
+                            </div>
+                            <h3 class="fs-2 text-body-emphasis"> ALL TYPES OF DRUGS </h3>
+                            <p>our shop has all types of drugs with best prices and with trusted companies and
+                                industries we also provides prescribed work by our emploies and has best reknowned
+                                derugs and medicines and also provides home delivery and also directyl provides delivery
+                                to hospitals </p>
+                           <button> <a href="https://magicpin.in/Katol/Katol/Pharmacy/Shree-Medical-Store/store/c003c3/?amp=1&srsltid=AfmBOoqLmxnTltec49JST3-OTmMNJgYkLqw77vjT5d4bBBa4IxttQSpz"
+                                class="icon-link" style="width: 50px;"><h4 style="text-align: center;">
+                                visit</button>
+
+                            </a>
+                        </div>
+                        <div class="feature col">
+                            <div
+                                class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                                <img src="./assets/./images/download (11).jpeg" alt="">
+                            </div>
+                            <h3 class="fs-2 text-body-emphasis">Featured title</h3>
+                            <p> Have best medicines and prescribed medicines and narcotics and have bettermedicines to
+                                our shop we also provides best medicines and injection with priscription in our town and
+                                also peovide the best way to help morer and more to customers we also provides the best
+                                service in out city so to have such a best service visit our shop Shree medicals </p>
+                           <button><a href="https://magicpin.in/Katol/Katol/Pharmacy/Shree-Medical-Store/store/c003c3/?amp=1&srsltid=AfmBOoqLmxnTltec49JST3-OTmMNJgYkLqw77vjT5d4bBBa4IxttQSpz"
+                                class="icon-link" style="width: 50px;"><h4 style="text-align: center;">
+                                visit </button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="icon">
-                    <a
-                        href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fcontacts.google.com%2F&followup=https%3A%2F%2Fcontacts.google.com%2F&ifkv=AdF4I775L_BDqhU6xBfHtR-tloD5_W5MW2crHOh_HcQa6gNFLez9uiikn9PX7OWm4_Cn4lvn4K8AAg&passive=1209600&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-1123269232%3A1721456574621118&ddm=0">
-                        <img src="./assets/images/contacts.png" width="50vw" height="50vh" alt="">
-                        <a href="https://join.skype.com/invite/trA5chU72dfp">
-                            <img src="./assets/images/skype images.jpeg" width="50vw" height="50vh" alt="">
-                        </a>
-
-                        <a href="https://github.com/Harsh689316/HarshFullStackDeveloper">
-                            <img src="./assets/images/git hub.png" width="50vw" height="50vh"></a>
-
-                        <a href="https://x.com/?lang=en">
-                            <img src="./assets/images/twiter.png" width="50vw" height="50vh" alt=""></a>
+                <!-- spot light section start -->
 
 
+                <div class="b-example-divider"></div>
+                <section id="Link">
+                    <div class="container px-4 py-5" id="hanging-icons">
+                        <h2 class="pb-2 border-bottom">SPOT LIGHTS</h2>
+                        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                            <div class="col d-flex align-items-start">
+                                <div
+                                    class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+
+                                </div>
+                                <div>
+                                    <h3 class="fs-2 text-body-emphasis">sun pharma</h3>
+                                    <p>Sun Pharmaceutical Industries Limited is an Indian multinational pharmaceutical
+                                        company headquartered in Mumbai, that manufactures and sells pharmaceutical
+                                        formulations and active pharmaceutical ingredients in more than 100 countries
+                                        across the globe.</p>
+                                    <a href="https://sunpharma.com/" class="btn btn-primary">
+                                        Read
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col d-flex align-items-start">
+                                <div
+                                    class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="fs-2 text-body-emphasis">Divi's Labs</h3>
+                                    <p>Divi's Laboratories Limited is an Indian multinational pharmaceutical company and
+                                        producer of active pharmaceutical ingredients and intermediates, headquartered
+                                        in Hyderabad. The company manufactures and custom synthesizes generic APIs,
+                                        intermediates.</p>
+                                    <a href="https://www.divislabs.com/" class="btn btn-primary">
+                                        Read
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="col d-flex align-items-start">
+                                <div
+                                    class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+
+                                </div>
+                                <div>
+                                    <h3 class="fs-2 text-body-emphasis">cipla</h3>
+                                    <p>Cipla Limited is an Indian multinational pharmaceutical company headquartered in
+                                        Mumbai. Cipla primarily focuses on developing medication to treat respiratory
+                                        disease, cardiovascular disease, arthritis, diabetes, depression, and various
+                                        other medical conditions.</p>
+                                    <a href="https://www.cipla.com/" class="btn btn-primary">
+                                        Read
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- spotlight section end -->
+
+                <div class="choice">
+                    <!-- why choose us starts -->
+                    <div class="c-IkEYc c-IkEYc-ihnwvht-css">
+                        <h2 class="c-bjPTlu"><span
+                                class="c-kkmdlQ c-kkmdlQ-cEFbbO-structure-subTitle1 c-kkmdlQ-jdOIsX-weight-semiBold c-kkmdlQ-gKuIKF-structure-title6">Why
+                                Choose Us?</span></h2>
+                        <div
+                            class="c-PJLV c-bXbWpx c-bXbWpx-lfylVv-direction-row c-bXbWpx-joLzpF-justify-center c-bXbWpx-joJbDg-align-center c-bXbWpx-igpXQDG-css">
+                            <div
+                                class="c-PJLV c-bXbWpx c-bXbWpx-joLzpF-justify-center c-bXbWpx-joJbDg-align-center c-bXbWpx-ifEzAqT-css">
+                                <div class="c-PJLV c-bXbWpx c-bXbWpx-icaHzCe-css"><span
+                                        style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span
+                                            style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img
+                                                style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0"
+                                                alt="" aria-hidden="true"
+                                                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODQiIGhlaWdodD0iODQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"></span><img
+                                            alt="32 Million+"
+                                            src="https://assets.pharmeasy.in/apothecary/images/family.svg?dim=256x0"
+                                            decoding="async" data-nimg="intrinsic" class="c-PJLV"
+                                            style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"
+                                            srcset="https://assets.pharmeasy.in/apothecary/images/family.svg?dim=96x0 1x, https://assets.pharmeasy.in/apothecary/images/family.svg?dim=256x0 2x"><noscript><img
+                                                alt="32 Million+"
+                                                srcSet="https://assets.pharmeasy.in/apothecary/images/family.svg?dim=96x0 1x, https://assets.pharmeasy.in/apothecary/images/family.svg?dim=256x0 2x"
+                                                src="https://assets.pharmeasy.in/apothecary/images/family.svg?dim=256x0"
+                                                decoding="async" data-nimg="intrinsic"
+                                                style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"
+                                                class="c-PJLV" loading="lazy" /></noscript></span></div>
+                                <div
+                                    class="c-PJLV c-bXbWpx c-bXbWpx-bZJlhX-direction-column c-bXbWpx-jRUInN-align-flexStart c-bXbWpx-ijkVjAp-css">
+                                    <span
+                                        class="c-kkmdlQ c-kkmdlQ-jxPRpY-structure-subTitle2 c-kkmdlQ-jdOIsX-weight-semiBold c-kkmdlQ-gUoTbk-structure-title7 c-kkmdlQ-ikrnmTY-css">32
+                                        Million+</span><span
+                                        class="c-kkmdlQ c-kkmdlQ-gatHuX-structure-captionRegular c-kkmdlQ-dYJjti-weight-regular c-kkmdlQ-dWajWX-structure-body1 c-kkmdlQ-ifZLwXq-css">Registered
+                                        users as of Mar 31, 2024</span>
+                                </div>
+                            </div>
+                            <div
+                                class="c-PJLV c-bXbWpx c-bXbWpx-joLzpF-justify-center c-bXbWpx-joJbDg-align-center c-bXbWpx-ifEzAqT-css">
+                                <div class="c-PJLV c-bXbWpx c-bXbWpx-icaHzCe-css"><span
+                                        style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span
+                                            style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img
+                                                style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0"
+                                                alt="" aria-hidden="true"
+                                                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODQiIGhlaWdodD0iODQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"></span><img
+                                            alt="36 Million+"
+                                            src="https://assets.pharmeasy.in/apothecary/images/deliveryBoy.svg?dim=256x0"
+                                            decoding="async" data-nimg="intrinsic" class="c-PJLV"
+                                            style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"
+                                            srcset="https://assets.pharmeasy.in/apothecary/images/deliveryBoy.svg?dim=96x0 1x, https://assets.pharmeasy.in/apothecary/images/deliveryBoy.svg?dim=256x0 2x"><noscript><img
+                                                alt="36 Million+"
+                                                srcSet="https://assets.pharmeasy.in/apothecary/images/deliveryBoy.svg?dim=96x0 1x, https://assets.pharmeasy.in/apothecary/images/deliveryBoy.svg?dim=256x0 2x"
+                                                src="https://assets.pharmeasy.in/apothecary/images/deliveryBoy.svg?dim=256x0"
+                                                decoding="async" data-nimg="intrinsic"
+                                                style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"
+                                                class="c-PJLV" loading="lazy" /></noscript></span></div>
+                                <div
+                                    class="c-PJLV c-bXbWpx c-bXbWpx-bZJlhX-direction-column c-bXbWpx-jRUInN-align-flexStart c-bXbWpx-ijkVjAp-css">
+                                    <span
+                                        class="c-kkmdlQ c-kkmdlQ-jxPRpY-structure-subTitle2 c-kkmdlQ-jdOIsX-weight-semiBold c-kkmdlQ-gUoTbk-structure-title7 c-kkmdlQ-ikrnmTY-css">36
+                                        Million+</span><span
+                                        class="c-kkmdlQ c-kkmdlQ-gatHuX-structure-captionRegular c-kkmdlQ-dYJjti-weight-regular c-kkmdlQ-dWajWX-structure-body1 c-kkmdlQ-ifZLwXq-css">Orders
+                                        on Pharmeasy till date </span>
+                                </div>
+                            </div>
+                            <div
+                                class="c-PJLV c-bXbWpx c-bXbWpx-joLzpF-justify-center c-bXbWpx-joJbDg-align-center c-bXbWpx-ifEzAqT-css">
+                                <div class="c-PJLV c-bXbWpx c-bXbWpx-icaHzCe-css"><span
+                                        style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span
+                                            style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img
+                                                style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0"
+                                                alt="" aria-hidden="true"
+                                                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODQiIGhlaWdodD0iODQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"></span><img
+                                            alt="99000+"
+                                            src="https://assets.pharmeasy.in/apothecary/images/pincodeServed.svg?dim=256x0"
+                                            decoding="async" data-nimg="intrinsic" class="c-PJLV"
+                                            style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"
+                                            srcset="https://assets.pharmeasy.in/apothecary/images/pincodeServed.svg?dim=96x0 1x, https://assets.pharmeasy.in/apothecary/images/pincodeServed.svg?dim=256x0 2x"><noscript><img
+                                                alt="99000+"
+                                                srcSet="https://assets.pharmeasy.in/apothecary/images/pincodeServed.svg?dim=96x0 1x, https://assets.pharmeasy.in/apothecary/images/pincodeServed.svg?dim=256x0 2x"
+                                                src="https://assets.pharmeasy.in/apothecary/images/pincodeServed.svg?dim=256x0"
+                                                decoding="async" data-nimg="intrinsic"
+                                                style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"
+                                                class="c-PJLV" loading="lazy" /></noscript></span></div>
+                                <div
+                                    class="c-PJLV c-bXbWpx c-bXbWpx-bZJlhX-direction-column c-bXbWpx-jRUInN-align-flexStart c-bXbWpx-ijkVjAp-css">
+                                    <span
+                                        class="c-kkmdlQ c-kkmdlQ-jxPRpY-structure-subTitle2 c-kkmdlQ-jdOIsX-weight-semiBold c-kkmdlQ-gUoTbk-structure-title7 c-kkmdlQ-ikrnmTY-css">99000+</span><span
+                                        class="c-kkmdlQ c-kkmdlQ-gatHuX-structure-captionRegular c-kkmdlQ-dYJjti-weight-regular c-kkmdlQ-dWajWX-structure-body1 c-kkmdlQ-ifZLwXq-css">Unique
+                                        items sold last 3 months</span>
+                                </div>
+                            </div>
+                            <div
+                                class="c-PJLV c-bXbWpx c-bXbWpx-joLzpF-justify-center c-bXbWpx-joJbDg-align-center c-bXbWpx-ifEzAqT-css">
+                                <div class="c-PJLV c-bXbWpx c-bXbWpx-icaHzCe-css"><span
+                                        style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"><span
+                                            style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%"><img
+                                                style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0"
+                                                alt="" aria-hidden="true"
+                                                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODQiIGhlaWdodD0iODQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"></span><img
+                                            alt="19000+"
+                                            src="https://assets.pharmeasy.in/apothecary/images/locationMarker.svg?dim=256x0"
+                                            decoding="async" data-nimg="intrinsic" class="c-PJLV"
+                                            style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"
+                                            srcset="https://assets.pharmeasy.in/apothecary/images/locationMarker.svg?dim=96x0 1x, https://assets.pharmeasy.in/apothecary/images/locationMarker.svg?dim=256x0 2x"><noscript><img
+                                                alt="19000+"
+                                                srcSet="https://assets.pharmeasy.in/apothecary/images/locationMarker.svg?dim=96x0 1x, https://assets.pharmeasy.in/apothecary/images/locationMarker.svg?dim=256x0 2x"
+                                                src="https://assets.pharmeasy.in/apothecary/images/locationMarker.svg?dim=256x0"
+                                                decoding="async" data-nimg="intrinsic"
+                                                style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"
+                                                class="c-PJLV" loading="lazy" /></noscript></span></div>
+                                <div
+                                    class="c-PJLV c-bXbWpx c-bXbWpx-bZJlhX-direction-column c-bXbWpx-jRUInN-align-flexStart c-bXbWpx-ijkVjAp-css">
+                                    <span
+                                        class="c-kkmdlQ c-kkmdlQ-jxPRpY-structure-subTitle2 c-kkmdlQ-jdOIsX-weight-semiBold c-kkmdlQ-gUoTbk-structure-title7 c-kkmdlQ-ikrnmTY-css">19000+</span><span
+                                        class="c-kkmdlQ c-kkmdlQ-gatHuX-structure-captionRegular c-kkmdlQ-dYJjti-weight-regular c-kkmdlQ-dWajWX-structure-body1 c-kkmdlQ-ifZLwXq-css">Pin
+                                        codes serviced last 3 months</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+
+                <div class="b-example-divider"></div>
+
+                <div class="container px-4 py-5" id="icon-grid">
+                    <h2 class="pb-2 border-bottom">What our customers say about us ?</h2>
+
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+                        <div class="col d-flex align-items-start">
+
+                            <div>
+                                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Shreya Sharma</h3>
+                                <p>I love using the PharmEasy app! They have everything related to health, like
+                                    medicines, lab tests, and other healthcare essentials, at GREAT prices. Their
+                                    service is amazing and quick, and the app is also easy to use.</p>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            <svg class="bi text-body-secondary flex-shrink-0 me-3" width="1.75em" height="1.75em">
+                                <use xlink:href="#cpu-fill"></use>
+                            </svg>
+                            <div>
+                                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Arvind Dingwani</h3>
+                                <p>I was a bit doubtful about using an online pharmacy, but Shree pharmacy exceeded my
+                                    expectations. The discount coupons were great, prices were very reasonable, and the
+                                    delivery was quick and smooth. I would definitely use it again.</p>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                            
+                            <div>
+                                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Nisha Tomar</h3>
+                                <p>I can't recommend the Shree pharmacy enough! It's the perfect one-stop shop for my
+                                    whole family's healthcare needs. The offers you can get here are beyond what other
+                                    platforms offer. Customer service, including returns, is also very convenient. This
+                                    app deserves 5 stars.</p>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                                <use xlink:href="#home"></use>
+                            </svg>
+                            <div>
+                                <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Dilip Joshi</h3>
+                                <p>I recently started using Shree Pharmacy, and I'm already a fan. They have a vast
+                                    selection
+                                    of products at affordable prices, which is a huge relief for my wallet. Their
+                                    delivery is always prompt, and their customer service is top-notch. Thank you.</p>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-start">
+                        </div>
+                    </div>
+                    <!-- why choose us ends -->
+                    <!-- icons starts-->
+                    <ul class="example-2">
+                        <li class="icon-content">
+                            <a href="https://linkedin.com/" aria-label="LinkedIn" data-social="linkedin">
+                                <div class="filled"></div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                                  </svg> 
+                            </a>
+                            <div class="tooltip">LinkedIn</div>
+                        </li>
+                        <li class="icon-content">
+                            <a href="" aria-label="GitHub" data-social="github">
+                                <div class="filled"></div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                                  </svg>
+                            </a>
+                            <div class="tooltip">Facebook</div>
+                        </li>
+                        <li class="icon-content">
+                            <a href="https://www.instagram.com/" aria-label="Instagram" data-social="instagram">
+                                <div class="filled"></div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                                  </svg>
+                            </a>
+                            <div class="tooltip">Instagram</div>
+                        </li>
+                        <li class="icon-content">
+                            <a href="https://youtube.com/" aria-label="Youtube" data-social="youtube">
+                                <div class="filled"></div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                                    <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+                                  </svg>
+                            </a>
+                            <div class="tooltip">Youtube</div>
+                        </li>
+                    </ul>
+                    <!-- icons ends -->
 
 
-        </div>
-        </div>
-    </section>
-</body>
+            </main>
+    </body>
 
 </html>
